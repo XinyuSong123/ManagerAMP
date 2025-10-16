@@ -74,7 +74,7 @@ class Critic(DeterministicMixin, Model):
 
     def compute(self, inputs, role):
         if role == "value":
-            output = self.net(inputs["states"][:,:-1]) 
+            output = self.net(inputs["states"]) 
             return self.value_layer(output), {}
         
 class Discriminator(DeterministicMixin, Model):
