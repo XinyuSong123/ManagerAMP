@@ -1,0 +1,26 @@
+task_name: Isaac-AMP-Velocity-Flat-G1-v0
+amp_observation_space: 46 # dimension of (states+next_states)
+memory_size: 24 # skrl replay buffer size
+learning_epochs: 6
+batch_size: 12
+discount_factor: 0.99
+lambda: 0.95
+learning_rate: 5.0e-05
+learning_rate_kl_threshold: 0.01
+discriminator_gradient_penalty_scale: 5.0 # If you think your AMP training speed is slow and your robot cannot learn anything, you can decrease this value to 1.0
+time_steps: 200000
+# For generalization to different command velocities, it is better to set a large task reward weight and a small style reward weight.
+task_reward_weight: 0.9 
+style_reward_weight: 0.1
+
+experiment:
+  write_interval: 200
+  checkpoint_interval: 2000
+  directory: amp # directory to save the checkpoints
+  wandb: True
+  wandb_kwargs:
+    project: amp
+    name: amp
+
+train: False # set false  to evaluate the trained policy
+checkpoint_path: "" # path to the checkpoint to be loaded, e.g., "amp/checkpoints/ckpt_10000.pt"
