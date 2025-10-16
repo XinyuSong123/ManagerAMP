@@ -1,5 +1,5 @@
 # AMP extension based on SKRL
-It is designed for Isaaclab Manager Based Env
+It is designed for Isaaclab Manager Based Env base on SKRL. You donnot need to install any extra extension in your env.
 ## Train Your Own Robot
 1. In your isaaclab manager, please manually set your joint orders to match the order of motion dataset. e.g.:
 In ActionsCfg, you should set joint pos as below:
