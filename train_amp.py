@@ -26,7 +26,7 @@ class Actor(GaussianMixin, Model):
         GaussianMixin.__init__(self, clip_actions, clip_log_std, min_log_std, max_log_std, reduction)
         
 
-        self.net = nn.Sequential(nn.Linear(self.num_observations-1, 1024),
+        self.net = nn.Sequential(nn.Linear(self.num_observations, 1024),
                                  nn.ELU(),
                                  nn.Linear(1024, 512),
                                  nn.ELU(),
@@ -46,7 +46,7 @@ class Actor(GaussianMixin, Model):
         
     def compute(self, inputs, role):
         if role == "policy":
-            output = self.net(inputs["states"][:,:-1])
+            output = self.net(inputs["states"])
             return self.mean_layer(output), self.log_std_parameter, {}
 
 
@@ -56,7 +56,7 @@ class Critic(DeterministicMixin, Model):
         Model.__init__(self, observation_space, action_space, device)
         DeterministicMixin.__init__(self, clip_actions)
 
-        self.net = nn.Sequential(nn.Linear(self.num_observations-1, 1024),
+        self.net = nn.Sequential(nn.Linear(self.num_observations, 1024),
                                  nn.ELU(),
                                  nn.Linear(1024, 512),
                                  nn.ELU(),
