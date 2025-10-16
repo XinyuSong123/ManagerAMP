@@ -193,8 +193,8 @@ trainer = SequentialTrainer(cfg=cfg_trainer, env=env, agents=agent)
 if config["train"]:
     trainer.train()
 else:
-    path = os.path.join(CURRENT_DIR, "amp.pt")
-    # path = config["checkpoint_path"]
+    # path = os.path.join(CURRENT_DIR, "amp.pt")
+    path = config["checkpoint_path"]
     agent.load(path)
 
     # # # start evaluation
