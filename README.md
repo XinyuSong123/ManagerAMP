@@ -174,5 +174,17 @@ AMP training highly relies on the quality of motion dataset. If you fail to trai
 ### Solution 1 
 Please remove the feet part from AMP dataset and restart training.
 
+
+#### Original Dataset
+<video src="https://github.com/user-attachments/assets/c52d825b-c9bf-47a7-b3ce-be6731de52b9" width="400" controls></video>
+
+
+#### Dataset Without Feet
+<video src="https://github.com/user-attachments/assets/650623f0-cc19-49ba-9342-72d198bc71c4" width="400" controls></video>
+
+
+
+
+
 ### Solution 2
 Please manually refine your motion dataset to make it reliable.
